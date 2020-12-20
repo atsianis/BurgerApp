@@ -1,6 +1,4 @@
 import React from "react";
-import { ProgressPlugin } from "webpack";
-import navigationitems from "../NavigationItems";
 import classes from "./item.css";
 
 const item = (props) => (
@@ -11,4 +9,4 @@ const item = (props) => (
   </li>
 );
 
-export default navigationitems;
+export default item;
