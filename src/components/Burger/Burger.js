@@ -14,6 +14,9 @@ const burger = (props) => {
                 <BurgerIngredient key={ingKey+i} type={ingKey}/>;
             })
         })
+        .reduce((arr,el) => {
+            return arr.concat(el);
+        }, []);
     return(
         <div className={classes.Burger}>
             {transformedIngredients}
