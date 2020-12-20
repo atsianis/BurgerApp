@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
+import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 
+const INGREDIENT_PRICES = {
+    salad:0.5,
+    bacon:0.7,
+    cheese:0.3,
+    meat:1.1
+};
 class BurgerBuilder extends Component{
 
     // constructor(props) {
@@ -53,6 +60,11 @@ class BurgerBuilder extends Component{
             <Aux>
                 <Burger ingredients={this.state.ingredients}/>
                 <div>Build Control</div>
+                <BuildControls
+                    ingredientAdded = {this.addIngredientHandler} 
+                    ingredientRemoved={this.removeIngredientHandler}
+                    price = {this.state.totalPrice}
+                />
             </Aux>
         );
     }
