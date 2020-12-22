@@ -61,26 +61,21 @@ class contactData extends Component {
       <React.Fragment>
         <h4>Enter your Contact Data</h4>
         <form>
+          <Input inputtype="input" type="text" name="name" placeholder="Your name" />
           <Input
-            type="input"
-            type="text"
-            name="name"
-            placeholder="Your name"
-          />
-          <Input
-            type="input"
+            inputtype="input"
             type="email"
             name="email"
             placeholder="Your email"
           />
           <Input
-            type="input"
+            inputtype="input"
             type="text"
             name="street"
             placeholder="Your street"
           />
           <Input
-            type="input"
+            inputtype="input"
             type="text"
             name="postal"
             placeholder="Your postal code"
@@ -94,11 +89,7 @@ class contactData extends Component {
     if (this.state.loading) {
       form = <Spinner />;
     }
-    return (
-        <div className={classes.ContactData}>
-            {form}
-        </div>
-    );
+    return <div className={classes.ContactData}>{form}</div>;
   }
 }
 
