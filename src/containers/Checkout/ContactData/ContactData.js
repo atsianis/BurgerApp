@@ -8,11 +8,55 @@ import Input from "../../../components/UI/Input/Input";
 class contactData extends Component {
   state = {
     orderForm: {
-      name: {},
-      street: {},
-      zipCode: {},
-      country: {},
-      deliveryMethod: {},
+      name: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your name'
+        },
+        value: ""
+      },
+      street: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your street'
+        },
+        value: ""
+      },
+      zipCode: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your zipcode'
+        },
+        value: ""
+      },
+      country: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your country'
+        },
+        value: ""
+      },
+      email:{
+        elementType: 'input',
+        elementConfig: {
+          type: 'email',
+          placeholder: 'Your email'
+        },
+        value: ""
+      },
+      deliveryMethod: {
+        elementType: 'select',
+        elementConfig: {
+          options: [
+            {value: 'fastest', displayValue: 'Fastest'},
+            {value: 'cheapest', displayValue: 'Cheapest'}
+          ]
+        }
+      }
     },
     loading: false,
   };
