@@ -3,6 +3,7 @@ import Button from "../../../components/UI/Button/Button";
 import classes from "./ContactData.css";
 import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
+import Input from '../../../components/UI/Input/Input';
 
 class contactData extends Component {
   state = {
@@ -60,26 +61,26 @@ class contactData extends Component {
       <React.Fragment>
         <h4>Enter your Contact Data</h4>
         <form>
-          <input
-            className={classes.Input}
+          <Input
+            type="input"
             type="text"
             name="name"
             placeholder="Your name"
           />
-          <input
-            className={classes.Input}
+          <Input
+            type="input"
             type="email"
             name="email"
             placeholder="Your email"
           />
-          <input
-            className={classes.Input}
+          <Input
+            type="input"
             type="text"
             name="street"
             placeholder="Your street"
           />
-          <input
-            className={classes.Input}
+          <Input
+            type="input"
             type="text"
             name="postal"
             placeholder="Your postal code"
