@@ -19,7 +19,7 @@ class contactData extends Component {
   orderHandler = (event) => {
     event.preventDefault(); // because the button is in the form
     console.log(this.props.ingredients);
-    
+
     this.setState({
       loading: true,
     });
