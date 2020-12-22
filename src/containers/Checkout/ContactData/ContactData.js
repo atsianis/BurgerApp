@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Button from "../../../components/UI/Button/Button";
 import classes from "./ContactData.css";
-import axios from '../../../axios-orders';
+import axios from "../../../axios-orders";
+import Spinner from "../../../components/UI/Spinner/Spinner";
 
 class contactData extends Component {
   state = {
@@ -54,8 +55,8 @@ class contactData extends Component {
   };
 
   render() {
-    return (
-      <div className={classes.ContactData}>
+    let form = (
+      <React.Fragment>
         <h4>Enter your Contact Data</h4>
         <form>
           <input
@@ -86,7 +87,15 @@ class contactData extends Component {
             ORDER
           </Button>
         </form>
-      </div>
+      </React.Fragment>
+    );
+    if (this.state.loading) {
+      form = <Spinner />;
+    }
+    return (
+        <div className={classes.ContactData}>
+            {form}
+        </div>
     );
   }
 }
