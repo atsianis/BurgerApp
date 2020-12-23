@@ -10,12 +10,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actionTypes from '../../store/actions';
 
-const INGREDIENT_PRICES = {
-  salad: 0.5,
-  bacon: 0.7,
-  cheese: 0.3,
-  meat: 1.1,
-};
+
 class BurgerBuilder extends Component {
   // constructor(props) {
   //     super(props);

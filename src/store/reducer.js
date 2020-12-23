@@ -10,6 +10,13 @@ const initialState = {
     totalPrice: 4
 };
 
+const INGREDIENT_PRICES = {
+    salad: 0.5,
+    bacon: 0.7,
+    cheese: 0.3,
+    meat: 1.1,
+  };
+
 const reducer = (state=initialState, action)=>{
     switch(action.type){
         case actiontypes.ADD_INGREDIENT:
