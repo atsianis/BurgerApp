@@ -86,6 +86,7 @@ class contactData extends Component {
       }
     },
     loading: false,
+    formIsValid:false
   };
 
   checkValidity(value, rules) {
@@ -153,8 +154,15 @@ class contactData extends Component {
     updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
     updatedFormElement.touched = true;
     updatedOrderForm[inputIdentifier] = updatedFormElement;
+
+    let formIsValid = true;
+    for (let inputIdentifier in updatedOrderForm) {
+      formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+    }
+
     this.setState({
-      orderForm:updatedOrderForm
+      orderForm:updatedOrderForm,
+      formIsValid: formIsValid
     });
 
   }
