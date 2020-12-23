@@ -63,8 +63,11 @@ class contactData extends Component {
 
   orderHandler = (event) => {
     event.preventDefault(); // because the button is in the form
-    console.log(this.props.ingredients);
-
+    
+    const data = {};
+    for (let formElementIdenifier in this.state.orderForm){
+      data[formElementIdenifier] = this.state.orderForm[formElementIdenifier].value;
+    }
     this.setState({
       loading: true,
     });
@@ -72,17 +75,8 @@ class contactData extends Component {
     const order = {
       ingredients: this.props.ingredients,
       price: this.props.price,
-      customer: {
-        name: "Thanos",
-        address: {
-          street: "Test Street 24",
-          zipCode: "43243",
-          country: "Greece",
-        },
-        email: "thanos@gmail.com",
-      },
-      deliveryMethod: "fast shipping",
-    };
+      data: data
+    }
 
     axios
       .post("/orders.json", order)
@@ -132,7 +126,7 @@ class contactData extends Component {
     let form = (
       <React.Fragment>
         <h4>Enter your Contact Data</h4>
-        <form>
+        <form onSubmit={this.orderHandler}>
           {formElementsArray.map(formElement => (
             <Input 
               key={formElement.id}
@@ -141,7 +135,7 @@ class contactData extends Component {
               value={formElement.config.value} 
               changed={(event)=>this.inputChangedHandler(event, formElement.id)}/>
           ))}
-          <Button btnType="Success" clicked={this.orderHandler}>
+          <Button btnType="Success">
             ORDER
           </Button>
         </form>
