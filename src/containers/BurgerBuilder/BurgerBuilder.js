@@ -12,11 +12,9 @@ import * as actionTypes from '../../store/actions';
 
 
 class BurgerBuilder extends Component {
-  // constructor(props) {
-  //     super(props);
-  //     this.state = {...}
-  // }
-
+  // We have olny left here the state that is related to UI
+  // UI state stays in the component
+  // Generally demanded data is moved in Redux
   state = {
     purchasing: false,
     loading: false,
