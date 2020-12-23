@@ -2,10 +2,10 @@ import * as actiontypes from './actions';
 
 const initialState = {
     ingredients: null,
-    totalPrice: 4,
+    totalPrice: 4
 };
 
-const reducer = (state=initialState, action){
+const reducer = (state=initialState, action)=>{
     switch(action.type){
         default:
             return state;
