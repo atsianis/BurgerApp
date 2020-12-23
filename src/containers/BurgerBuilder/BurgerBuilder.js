@@ -154,3 +154,16 @@ class BurgerBuilder extends Component {
 }
 
 export default withErrorHandler(BurgerBuilder, axios);
+const mapStateToProps = state => {
+  return{
+    ings: state.ingredients
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return{
+    onIngredientAdded: (ingName)=> dispatch({type: actionTypes.ADD_INGREDIENT, payload: ingName}),
+    onIngredientRemoved: (ingName)=> dispatch({type: actionTypes.REMOVE_INGREDIENT, payload: ingName})
+  }
+}
+
