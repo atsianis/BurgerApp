@@ -105,8 +105,8 @@ class contactData extends Component {
     event.preventDefault(); // because the button is in the form
     
     const data = {};
-    for (let formElementIdenifier in this.state.orderForm){
-      data[formElementIdenifier] = this.state.orderForm[formElementIdenifier].value;
+    for (let formElementIdentifier in this.state.orderForm){
+      data[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
     }
     this.setState({
       loading: true,
