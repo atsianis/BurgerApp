@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux'
+import axios from "../../axios-orders";
 import Aux from "../../hoc/Auxiliary/Auxiliary";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
-import axios from "../../axios-orders";
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as burgerBuilderActions from '../../store/actions/index';
@@ -55,7 +55,7 @@ class BurgerBuilder extends Component {
 
     let orderSummary = null;
 
-    let burger = this.state.error ? <p>Can't load ingredients !</p> : <Spinner/>;
+    let burger = this.props.error ? <p>Can't load ingredients !</p> : <Spinner/>;
     if (this.state.ingredients){
       burger = (
         <Aux>
@@ -97,7 +97,8 @@ class BurgerBuilder extends Component {
 const mapStateToProps = state => {
   return{
     ings: state.ingredients,
-    price: state.totalPrice
+    price: state.totalPrice,
+    error: state.error
   };
 }
 

@@ -1,14 +1,16 @@
 import * as actionTypes from './actionTypes';
 
-export const addIngredient = (payload) => {
+export const addIngredient = (ingName) => {
     return {
         type: actionTypes.ADD_INGREDIENT,
-        payload: payload
+        payload: ingName
     }
 };
 
-export const removeIngredient = (payload) => {
+export const removeIngredient = (ingName) => {
     return {
         type:actionTypes.REMOVE_INGREDIENT,
-        payload: payload    }
+        payload: ingName    }
+}
+
 }
