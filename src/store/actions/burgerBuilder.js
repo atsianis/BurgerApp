@@ -11,7 +11,8 @@ export const addIngredient = (ingName) => {
 export const removeIngredient = (ingName) => {
     return {
         type:actionTypes.REMOVE_INGREDIENT,
-        payload: ingName    }
+        payload: ingName    
+    }
 }
 
 export const initIngredients = () => {
