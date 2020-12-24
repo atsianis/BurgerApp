@@ -92,7 +92,6 @@ class contactData extends Component {
         valid:true
       }
     },
-    loading: false,
     formIsValid:false
   };
 
@@ -121,10 +120,7 @@ class contactData extends Component {
     for (let formElementIdentifier in this.state.orderForm){
       data[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
     }
-    this.setState({
-      loading: true,
-    });
-
+    
     const order = {
       ingredients: this.props.ings,
       price: this.props.price,
@@ -194,7 +190,7 @@ class contactData extends Component {
         </form>
       </React.Fragment>
     );
-    if (this.state.loading) {
+    if (this.props.loading) {
       form = <Spinner />;
     }
     return <div className={classes.ContactData}>{form}</div>;
@@ -204,12 +200,15 @@ class contactData extends Component {
 const mapStateToProps = state => {
   return {
     ings: state.ingredients,
-    price: state.totalPrice
+    price: state.totalPrice,
+    loading: state.loading
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  onOrderBurger: (orderData)=> dispatch(orderActions.purchaseBurgerStart(orderData));
+  return{
+    onOrderBurger: (orderData)=> dispatch(orderActions.purchaseBurger(orderData))
+  }
 };
 
-export default connect(mapStateToProps)(withErrorHandler(contactData,axios));
+export default connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(contactData,axios));
