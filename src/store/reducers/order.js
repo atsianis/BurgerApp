@@ -1,4 +1,4 @@
-import * as actiontypes from '../actions/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     orders: [],
@@ -12,7 +12,7 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 loading:true
             }
-        case actiontypes.PURCHASE_BURGER_SUCCESS:
+        case actionTypes.PURCHASE_BURGER_SUCCESS:
             const newOrder = {
                 ...action.payload.orderData,
                 id: action.payload.orderId
@@ -31,3 +31,5 @@ const reducer = (state=initialState, action) => {
             return state;
     }
 }
+
+export default reducer;
