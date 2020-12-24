@@ -120,7 +120,7 @@ class contactData extends Component {
     for (let formElementIdentifier in this.state.orderForm){
       data[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
     }
-    
+
     const order = {
       ingredients: this.props.ings,
       price: this.props.price,
@@ -199,9 +199,9 @@ class contactData extends Component {
 
 const mapStateToProps = state => {
   return {
-    ings: state.ingredients,
-    price: state.totalPrice,
-    loading: state.loading
+    ings: state.burgerBuilder.ingredients,
+    price: state.burgerBuilder.totalPrice,
+    loading: state.order.loading
   };
 };
 
