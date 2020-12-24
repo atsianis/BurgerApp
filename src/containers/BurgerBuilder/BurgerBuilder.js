@@ -15,9 +15,7 @@ class BurgerBuilder extends Component {
   // UI state stays in the component
   // Generally demanded data is moved in Redux
   state = {
-    purchasing: false,
-    loading: false,
-    error: false
+    purchasing: false
   };
 
   componentDidMount(){
