@@ -16,6 +16,8 @@ const reducer = (state=initialState, action) => {
             return updateObject(state, {token: action.payload.token, userId: action.payload.userId, error: null, loading: false});
         case actionTypes.AUTH_FAIL:
             return updateObject(state, {error: action.payload.message, loading: action.payload.loading});
+        case actionTypes.AUTH_LOGOUT:
+            return updateObject(state, {token: null, userId: null});
         default:
             return state;
     }
