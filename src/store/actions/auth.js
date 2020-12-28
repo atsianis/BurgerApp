@@ -9,7 +9,10 @@ export const authStart=()=> {
 export const authSuccess = (authData) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        payload: authData
+    payload: {
+      token: authData.token,
+      userId: authData.userId
+    },
     };
 };
 
