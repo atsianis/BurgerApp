@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import Layout from "./hoc/Layout/Layout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 import {connect} from 'react-redux';
@@ -18,13 +18,13 @@ const asyncOrders = asyncComponent( ()=> {
 const asyncAuth = asyncComponent( ()=> {
   return import('./containers/Auth/Auth')
 });
-class App extends Component {
+const app = props => {
 
-  componentDidMount(){
-    this.props.onTryAutoLogin();
-  }
+  useEffect( ()=>{
+    props.onTryAutoLogin();
+  },[]);
 
-  render() {
+  
     let routes = (
       <Switch>
         <Route path="/auth" component={asyncAuth} />
@@ -33,7 +33,7 @@ class App extends Component {
       </Switch>
     );
 
-    if (this.props.isAuthenticated){
+    if (props.isAuthenticated){
       routes = (
         <Switch>
             <Route path="/" exact component={BurgerBuilder} />
@@ -52,7 +52,7 @@ class App extends Component {
         </Layout>
       </div>
     );
-  }
+  
 }
 
 const mapStateToProps = state => {
@@ -67,4 +67,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(app));
